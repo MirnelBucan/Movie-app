@@ -1,4 +1,5 @@
-import TvShowType from './TvShowType';null
+import TvShowType from './TvShowType';
+null;
 import ErrorType from '../common/Error';
 
 export default interface TvShowStateType {

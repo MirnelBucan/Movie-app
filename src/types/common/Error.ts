@@ -1,4 +1,4 @@
 export default interface ErrorType {
-  status_message: string,
-  success: boolean
+  status_message: string;
+  success: boolean;
 }

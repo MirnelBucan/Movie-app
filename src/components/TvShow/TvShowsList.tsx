@@ -26,7 +26,7 @@ const TvShowsList: FunctionComponent = () => {
   }, [dispatch, searchInput]);
 
   if (isLoading) return <Loading />;
-  if (error) return <Error error={error}/>;
+  if (error) return <Error error={error} />;
 
   return tvShows.length ? (
     <CardList>
