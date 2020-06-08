@@ -10,7 +10,7 @@ import TvShowType from '../../types/TvShow/TvShowType';
 const initialState: TvShowStateType = {
   tvShows: [] as TvShowType[],
   isLoading: undefined,
-  error: null,
+  error: undefined,
 };
 const tvShowsReducer = (
   state: TvShowStateType = initialState,
@@ -22,13 +22,11 @@ const tvShowsReducer = (
         ...state,
         isLoading: action.isLoading,
         tvShows: [] as TvShowType[],
-        error: null,
       };
     case FETCH_TV_SHOWS_SUCCESS:
       return {
         ...state,
         isLoading: action.isLoading,
-        error: action.error,
         tvShows: action.tvShows,
       };
     case FETCH_TV_SHOWS_ERROR:

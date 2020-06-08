@@ -8,6 +8,7 @@ import {
   FETCH_MOVIES_SUCCESS,
 } from '../const';
 import MovieActionType from '../../types/Movie/MovieActionType';
+import ErrorType from '../../types/common/Error';
 
 export const fetchMovies = (): MovieActionType => ({
   type: FETCH_MOVIES,
@@ -21,7 +22,7 @@ export const fetchMoviesSuccess = (movies: MovieType[]): MovieActionType => ({
   movies,
 });
 
-export const fetchMoviesError = (error: object): MovieActionType => ({
+export const fetchMoviesError = (error: ErrorType): MovieActionType => ({
   type: FETCH_MOVIES_ERROR,
   isLoading: false,
   error,

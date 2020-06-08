@@ -9,12 +9,12 @@ import { AppStateType } from '../types/AppStateType';
 const initialState: AppStateType = {
   search: '',
   moviesState: {
-    error: null,
+    error: undefined,
     isLoading: undefined,
     movies: [],
   },
   tvShowsState: {
-    error: null,
+    error: undefined,
     isLoading: undefined,
     tvShows: [],
   },

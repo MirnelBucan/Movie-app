@@ -1,7 +1,8 @@
-import TvShowType from './TvShowType';
+import TvShowType from './TvShowType';null
+import ErrorType from '../common/Error';
 
 export default interface TvShowStateType {
   isLoading: boolean | undefined;
-  error?: object | null;
+  error?: ErrorType | undefined;
   tvShows: TvShowType[];
 }

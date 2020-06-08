@@ -8,10 +8,11 @@ import MoviesCard from './MoviesCard';
 import { loadMovies, searchMovies } from '../../store/actions/moviesActions';
 import NoResult from '../common/NoResult';
 import { AppStateType } from '../../types/AppStateType';
+import Error from '../common/Error';
 
 const MoviesList = () => {
   const searchInput = useSelector((state: AppStateType) => state.search);
-  const { movies, isLoading } = useSelector(
+  const { movies, isLoading, error } = useSelector(
     (state: AppStateType) => state.moviesState
   );
 
@@ -25,6 +26,8 @@ const MoviesList = () => {
   }, [dispatch, searchInput]);
 
   if (isLoading) return <Loading />;
+  if(error) return <Error error={error} />
+
   return movies.length ? (
     <CardList>
       {movies.map((movie) => (

@@ -9,6 +9,7 @@ import {
   FETCH_TV_SHOWS_ERROR,
   FETCH_TV_SHOWS_SUCCESS,
 } from '../const';
+import ErrorType from '../../types/common/Error';
 
 export const fetchTvShows = () => ({
   type: FETCH_TV_SHOWS,
@@ -23,7 +24,7 @@ export const fetchTvShowsSuccess = (
   tvShows,
 });
 
-export const fetchTvShowsError = (error: object): TvShowActionType => ({
+export const fetchTvShowsError = (error: ErrorType): TvShowActionType => ({
   type: FETCH_TV_SHOWS_ERROR,
   isLoading: false,
   error,

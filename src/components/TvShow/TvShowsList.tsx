@@ -7,11 +7,13 @@ import Loading from '../common/Loading';
 import CardList from '../common/CardList';
 import TvShowsCard from './TvShowsCard';
 import NoResult from '../common/NoResult';
+import Error from '../common/Error';
+
 import { AppStateType } from '../../types/AppStateType';
 
 const TvShowsList: FunctionComponent = () => {
   const searchInput = useSelector((state: AppStateType) => state.search);
-  const { tvShows, isLoading } = useSelector(
+  const { tvShows, isLoading, error } = useSelector(
     (state: AppStateType) => state.tvShowsState
   );
   const dispatch = useDispatch();
@@ -24,6 +26,8 @@ const TvShowsList: FunctionComponent = () => {
   }, [dispatch, searchInput]);
 
   if (isLoading) return <Loading />;
+  if (error) return <Error error={error}/>;
+
   return tvShows.length ? (
     <CardList>
       {tvShows.map((tvShow) => (

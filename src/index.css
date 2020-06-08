@@ -136,6 +136,12 @@ code {
   align-items: center;
 }
 
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .no-results {
   text-align: center;
   font-size: 2rem;

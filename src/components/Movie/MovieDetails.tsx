@@ -5,11 +5,12 @@ import DetailsTrailer from '../common/DetailsTrailer';
 import DetailsPoster from '../common/DetailsPoster';
 import movieDbApi from '../../utils/movieDbApi';
 import MovieDetailsType from '../../types/Movie/MovieDetailsType';
+import Error from '../common/Error';
 
 const MovieDetails: FunctionComponent<{ movieId: string }> = ({ movieId }) => {
   const [movie, setMovie] = useState<MovieDetailsType | undefined>(undefined);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(undefined);
 
   useEffect(() => {
     const getMovieDetails = async (id: string) => {
@@ -31,6 +32,7 @@ const MovieDetails: FunctionComponent<{ movieId: string }> = ({ movieId }) => {
   }, [loading]);
 
   if (loading) return <Loading />;
+  if(error) return <Error error={error} />
   return (
     <div>
       {movie && movie.videos.length ? (

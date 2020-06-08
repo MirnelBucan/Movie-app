@@ -28,7 +28,6 @@ const moviesReducer = (
       return {
         ...state,
         isLoading: action.isLoading,
-        error: action.error,
         movies: action.movies,
       };
     case FETCH_MOVIES_ERROR:

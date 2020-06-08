@@ -5,6 +5,7 @@ import DetailsTrailer from '../common/DetailsTrailer';
 import DetailsPoster from '../common/DetailsPoster';
 import movieDbApi from '../../utils/movieDbApi';
 import TvShowDetailsType from '../../types/TvShow/TvShowDetailsType';
+import Error from '../common/Error';
 
 const TvShowDetails: FunctionComponent<{ tvShowId: string }> = ({
   tvShowId,
@@ -13,7 +14,7 @@ const TvShowDetails: FunctionComponent<{ tvShowId: string }> = ({
     undefined
   );
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(undefined);
 
   useEffect(() => {
     const getTvShowDetails = async (id: string) => {
@@ -34,6 +35,7 @@ const TvShowDetails: FunctionComponent<{ tvShowId: string }> = ({
   }, [loading]);
 
   if (loading) return <Loading />;
+  if (error) return <Error error={error}/>;
   return (
     <div>
       {tvShow && tvShow.videos.length ? (
