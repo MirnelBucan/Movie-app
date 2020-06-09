@@ -37,7 +37,7 @@ export const loadMovies = () => async (dispatch: Dispatch) => {
     } = await movieDbApi.get('/movie/top_rated');
     dispatch(fetchMoviesSuccess(limitNumOfElements(moviesResult, 10)));
   } catch (err) {
-    dispatch(fetchMoviesError(err));
+    dispatch(fetchMoviesError(err.response.data));
   }
 };
 export const searchMovies = (query: string) => async (dispatch: Dispatch) => {
@@ -52,6 +52,6 @@ export const searchMovies = (query: string) => async (dispatch: Dispatch) => {
     });
     dispatch(fetchMoviesSuccess(moviesResult));
   } catch (err) {
-    dispatch(fetchMoviesError(err));
+    dispatch(fetchMoviesError(err.response.data));
   }
 };

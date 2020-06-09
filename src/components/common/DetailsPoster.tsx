@@ -1,5 +1,5 @@
 import React from 'react';
-import { BASE_IMG_URL } from '../const';
+import { BASE_IMG_URL } from '../../const';
 import DetailsPosterType from '../../types/common/DetailsPosterType';
 
 const DetailsPoster = ({ title, imgUrl }: DetailsPosterType) => {

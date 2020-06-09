@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { API_URL } from '../const';
 
-const url = process.env.API_URL || 'https://api.themoviedb.org/3';
+const url = API_URL;
 const movieDbApi = axios.create({
   baseURL: url,
   responseType: 'json',

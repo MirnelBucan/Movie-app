@@ -24,12 +24,12 @@ const MovieDetails: FunctionComponent<{ movieId: string }> = ({ movieId }) => {
 
         setMovie(movieResult);
       } catch (error) {
-        setError(error);
+        setError(error.response.data);
       }
       setLoading(false);
     };
     getMovieDetails(movieId);
-  }, [loading]);
+  }, []);
 
   if (loading) return <Loading />;
   if (error) return <Error error={error} />;

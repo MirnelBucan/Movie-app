@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { URL_YOUTUBE } from '../const';
+import { URL_YOUTUBE } from '../../const';
 import DetailsTrailerType from '../../types/common/DetailsTrailerType';
 
 const DetailsTrailer: FunctionComponent<DetailsTrailerType> = ({ trailer }) => {

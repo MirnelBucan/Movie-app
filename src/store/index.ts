@@ -1,26 +1,36 @@
-import { createStore, applyMiddleware } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import rootReducer from './reducers';
 import { AppStateType } from '../types/AppStateType';
+import { log } from 'util';
+
+const isDev = process.env.REACT_APP_ENV === 'development';
 
 const initialState: AppStateType = {
   search: '',
   moviesState: {
     error: undefined,
     isLoading: undefined,
-    movies: [],
+    movies: []
   },
   tvShowsState: {
     error: undefined,
     isLoading: undefined,
-    tvShows: [],
-  },
+    tvShows: []
+  }
 };
+
 const logger = createLogger();
-const middleware = [thunk, logger];
+let middleware = [];
+
+if (isDev) {
+  middleware = [thunk, logger];
+} else {
+  middleware = [thunk]
+}
 
 const store = createStore(
   rootReducer,

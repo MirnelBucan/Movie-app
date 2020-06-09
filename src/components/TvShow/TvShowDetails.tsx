@@ -27,12 +27,12 @@ const TvShowDetails: FunctionComponent<{ tvShowId: string }> = ({
         tvShowResult.videos = tvShowResult.videos.results;
         setTvShow(tvShowResult);
       } catch (error) {
-        setError(error);
+        setError(error.response.data);
       }
       setLoading(false);
     };
     getTvShowDetails(tvShowId);
-  }, [loading]);
+  }, []);
 
   if (loading) return <Loading />;
   if (error) return <Error error={error} />;

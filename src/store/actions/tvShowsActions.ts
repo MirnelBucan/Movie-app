@@ -39,7 +39,7 @@ export const loadTvShows = () => async (dispatch: Dispatch) => {
     } = await movieDbApi.get('/tv/top_rated');
     dispatch(fetchTvShowsSuccess(limitNumOfElements(tvShowsResult, 10)));
   } catch (err) {
-    dispatch(fetchTvShowsError(err));
+    dispatch(fetchTvShowsError(err.response.data));
   }
 };
 
@@ -55,6 +55,6 @@ export const searchTvShows = (query: string) => async (dispatch: Dispatch) => {
     });
     dispatch(fetchTvShowsSuccess(tvShowsResult));
   } catch (err) {
-    dispatch(fetchTvShowsError(err));
+    dispatch(fetchTvShowsError(err.response.data));
   }
 };
