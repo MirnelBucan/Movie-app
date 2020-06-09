@@ -7,11 +7,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     cd Movie-app
     npm install
 
-### Configure app
-
-First you need to get api key from [TheMovieDb]( https://developers.themoviedb.org/3/) .<br />
-After u get your api key, copy `.env.example` to `.env` then edit it as instructed inside `.env`.
-
 ## Available Scripts
 
 In the project directory, you can run:
